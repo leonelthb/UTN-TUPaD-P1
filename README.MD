@@ -3,7 +3,7 @@
 📍 *Universidad Tecnológica Nacional*  
 
 ## ✨ Estudiante  
-- **Nombre:** Leonel Jesus Aballau
+- **Nombre:** Leonel Jesus Aballay
 
 - **Comisión:** M2025-6 *[Modificar con su comisión, donde 7 es el número de comisión]*  
 
