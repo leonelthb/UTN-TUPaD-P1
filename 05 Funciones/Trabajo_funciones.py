@@ -7,8 +7,8 @@ def imprimir_hola_mundo():
     print("Hola Mundo!")
 
 # Programa principal
-if __name__ == "__main__":
-    imprimir_hola_mundo()
+
+imprimir_hola_mundo()
 
 
 
@@ -34,18 +34,9 @@ def saludar_usuario(nombre): # Toma el parametro "nombre"
     return f"Hola {nombre}!"
 
 # Programa principal
-if __name__ == "__main__": #Variable especial, nombre del modulo que se esta ejecutando
-    # Solicitar el nombre al usuario
-    nombre_usuario = input("¿Cuál es tu nombre? ")
-    
-    # Llamar a la función saludar_usuario con el nombre ingresado
-    saludo = saludar_usuario(nombre_usuario)
-    
-    # Imprimir el saludo
-    print(saludo)
-
-
-
+nombre = input("Ingrese su nombre: ")
+saludo = saludar_usuario(nombre)
+print(saludo)
 
 
 
@@ -67,15 +58,13 @@ def informaicon_personal(nombre, apellido, edad, residencia):
     print (f"Soy {nombre}, {apellido}, de {edad} años y soy de {residencia}")
 
 # Programa principal
-if __name__ == "__main__": #Variable especial, nombre del modulo que se esta ejecutando
 
-    name_usuario = input("Ingresa tu nombre: ")
-    apellido_usuario = input ("Ingrsa tu apellido: ")
-    edad_usuario = int(input("Ingresa tu edad: "))
-    residencia_usuario = input("Donde vives?? ")
+name_usuario = input("Ingresa tu nombre: ")
+apellido_usuario = input ("Ingrsa tu apellido: ")
+edad_usuario = int(input("Ingresa tu edad: "))
+residencia_usuario = input("Donde vives?? ")
 
 informaicon_personal(name_usuario, apellido_usuario, edad_usuario, residencia_usuario)
-
 
 
 
@@ -95,24 +84,22 @@ informaicon_personal(name_usuario, apellido_usuario, edad_usuario, residencia_us
 # ambas funciones para mostrar los resultados
 
 # Declaracion de funciones
-import math
-from tkinter import RADIOBUTTON
-
+PI = 3.14
 def calcular_area_cirulo(radio): # Funcion para calcular el area
-    return math.pi * radio ** 2
+    return PI * radio ** 2
 
 def  calular_perimetro_circulo(radio): # Funcion para calcular el perimtro
-    return 2 * math.pi * radio   
+    return 2 * PI * radio   
 
 # Programa principal
-if __name__ == "__main__":#Variable especial, nombre del modulo que se esta ejecutando
-    radio_usuario = float(input("Introduce el radio de un circulo: ")) # Ingreso del radio 
 
-    area = calcular_area_cirulo(radio_usuario)
-    perimetro = calular_perimetro_circulo(radio_usuario) 
+radio_usuario = float(input("Introduce el radio de un circulo: ")) # Ingreso del radio 
+area = calcular_area_cirulo(radio_usuario)
+perimetro = calular_perimetro_circulo(radio_usuario) 
 
-    print(f"El area del circulo con radio {radio_usuario}")
-    print(f"El perimetro (circunferencia) del circulo con radio {radio_usuario} es: {perimetro:.2f}") # Formateo de numeros (:.2f) formatear el numero con 2 decimales
+print(f"El area del circulo es: {area:.2f}")
+print(f"El perimetro del cirulo es: {perimetro:.2f}")
+
 
 
 
@@ -137,12 +124,9 @@ def segundos_a_horas(segundos):
     return horas
 
 # Programa principal 
-if __name__ == "__main__":
-    segundos_usuario = int(input("Ingresa una cantidad de segundos: "))
-
-    horas = segundos_a_horas(segundos_usuario) # Llamar a la funion segundos_a_horas para el resultado
-
-    print(f"{segundos_usuario} segundos equivalents a {horas:.2f} horas.") # Mostrar resultado, .2f formatear el numero con 2 decimales
+segundos_usuario = int(input("Ingresa una cantidad de segundos: "))
+horas = segundos_a_horas(segundos_usuario) # Llamar a la funion segundos_a_horas para el resultado
+print(f"{segundos_usuario} segundos equivalents a {horas:.2f} horas.") # Mostrar resultado, .2f formatear el numero con 2 decimales
 
 
 
@@ -166,11 +150,8 @@ if __name__ == "__main__":
 def tabla_multi(numero):
     for i in range (1,11): # para que multiplique del 1 al 10
         print(f"{numero} x {i} = {numero * i}") 
-
-
 # Programa principal 
 numero_usuario = int(input("Ingresa un numero que quieras multiplicar: "))
-
 tabla_multi(numero_usuario) # Llamamos a la funcion
 
 
@@ -204,19 +185,38 @@ def operaciones_basicas(a,b): # asegurarse que el valor de los variables se pued
 
     return (suma, resta, multiplicacion, division) #devolucion de los resultados
 
+# Ejercicio 7: Crear una función llamada operaciones_basicas(a, b) que reciba
+# dos números como parámetros y devuelva una tupla con el resultado
+# de sumarlos, restarlos, multiplicarlos y dividirlos. Mostrar los re
+# sultados de forma clara.
 
-# Programa principal 
-# Solicitud al usuario del valor de las variables a y b
-a = float(input("Ingresa el valor de a: "))
+# Definicion de variables
+def operaciones_basicas(a,b):
+    suma = a + b
+    resta = a - b
+    multipliacion = a * b
+
+    if b != 0:
+        division = a / b
+    else:
+        division = None
+
+    return (suma, resta, multipliacion,division)
+
+a = float(input("Ingrese el valor de a: "))
 b = float(input("Ingresa el valor de b: "))
 
-resultados = operaciones_basicas(a,b) # Llamar a la funcion
+suma, resta, multiplicacion, division = operaciones_basicas(a,b)
 
-print(f"Resultados de las operaciones básicas entre {a} y {b}:")
-print(f"Suma: {resultados[0]}")
-print(f"Resta: {resultados[1]}")
-print(f"Multiplicación: {resultados[2]}")
-print(f"División: {resultados[3]}")
+print("Suma: ", suma)
+print("Resta: ", resta)
+print("Multiplicacion: ",multiplicacion)
+if division is not None:
+    print("Division: ", division)
+else:
+    print("No se puede dividir por 0")
+
+
 
 
 
@@ -245,10 +245,8 @@ def calcular_imc(peso, altura):
 # Programa principal 
 peso = float(input("Ingresa tu peso: "))
 altura = float(input("Ingresa tu altura: "))
-
 #Llamar a la funcion
 IMC = calcular_imc(peso, altura)
-
 print(f"Tu IMC es de {IMC}")
 
 
@@ -276,7 +274,6 @@ def celcuis_a_fahrenheit(celcius):
 
 # Programa principal 
 celcius = float(input("Ingrese la temperatura en grados celcius: "))
-
 fahrenheit = celcuis_a_fahrenheit(celcius)
 print(f"La conversion de grados Celcius a Fahrenheit es de: {fahrenheit}°F .")
 
@@ -285,7 +282,7 @@ print(f"La conversion de grados Celcius a Fahrenheit es de: {fahrenheit}°F .")
 
 
 
-# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
 
@@ -311,3 +308,13 @@ c = float (input("Ingrese la tercera nota: "))
 
 promedio = calcular_promedio(a, b, c) #Llamar a la funcion
 print(f"El promedio es de {promedio:.2f}") #Imprimir resultado
+
+
+
+
+
+
+
+
+
+
